@@ -1,0 +1,14 @@
+.news-card__source {
+  margin: 0;
+  padding-left: 24px;
+  margin-bottom: 24px;
+  width: 352px;
+  font-family: Roboto Slab;
+  font-style: normal;
+  font-weight: bold;
+  font-size: 16px;
+  line-height: 20px;
+  letter-spacing: 0.4px;
+  text-transform: uppercase;
+  color: #b6bcbf;
+}

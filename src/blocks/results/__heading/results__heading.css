@@ -1,0 +1,7 @@
+.results__heading {
+  display: flex;
+  padding-top: 80px;
+  margin-bottom: 64px;
+  justify-content: space-between;
+  align-items: center;
+}

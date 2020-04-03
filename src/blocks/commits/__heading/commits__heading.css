@@ -1,0 +1,7 @@
+.commits__heading {
+  padding-top: 72px;
+  margin-bottom: 64px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}

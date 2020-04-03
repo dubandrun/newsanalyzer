@@ -1,0 +1,12 @@
+.results__img-loader {
+  width: 74px;
+  position: absolute;
+  left: 579px;
+  top: 80px;
+  animation: rotation 1s linear infinite;
+}
+
+@keyframes rotation {
+    from {transform: rotate(0);}
+    to {transform: rotate(360deg);}
+}

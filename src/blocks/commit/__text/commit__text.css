@@ -1,0 +1,11 @@
+.commit__text {
+  margin: 0;
+  margin-left: 24px;
+  padding-bottom: 58px;
+  font-family: Roboto;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 16px;
+  line-height: 22px;
+  color: #1a1b22;
+}

@@ -1,0 +1,8 @@
+.footer__icon {
+  margin: 0;
+  margin-right: 27.89px;
+}
+
+.footer__icon:last-child {
+  margin-right: 0;
+}

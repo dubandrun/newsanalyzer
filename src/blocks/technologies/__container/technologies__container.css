@@ -1,0 +1,7 @@
+.technologies__container {
+  width: 1232px;
+  margin: 0 auto;
+  padding-top: 80px;
+  padding-bottom: 88px;
+  display: flex;
+}
