@@ -1,5 +1,6 @@
 .commits__container {
   margin: auto;
+  padding-bottom: 80px;
   width: 1232px;
   height: 500px;
 }

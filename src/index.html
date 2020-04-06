@@ -2,31 +2,36 @@
 <html lang="ru">
 <head>
   <meta charset="UTF-8">
+  <meta name="author" content="Иванов Антон"/>
+  <meta name="copyright" content="Дипломный проект"/>
+  <meta name="description" content="Что происходит в мире? Будь в курсе событий с сервисом NewsAnalyzer! Смотри, читай, узнавай, анализируй статистику запросов новостей."/>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <title>NewsAnalyzer</title>
+  <link rel="shortcut icon" href="./images/main.png">
   <link rel="stylesheet" href="./css/index.css">
 </head>
 <body>
-  <div class="root root_main-background">
-    <header class="header">
-      <div class="header__container">
-        <a href="./index.html" class="link header__logo header__logo_theme_light">NewsAnalyzer</a>
-        <a href="./index.html" class="link header__link-main header__link-main_theme_light header__link-main_theme_main">Главная</a>
-        <a href="./about.html" class="link header__link-about header__link-about_theme_light">О проекте</a>
-      </div>
-    </header>
-
+  <div class="root">
+    
     <main class="content">
     
       <section class="search">
+        <header class="header">
+          <div class="header__container">
+            <a href="./index.html" class="link header__logo header__logo_theme_light">NewsAnalyzer</a>
+            <a href="./index.html" class="link header__link-main header__link-main_theme_light header__link-main_theme_main">Главная</a>
+            <a href="./about.html" class="link header__link-about header__link-about_theme_light">О проекте</a>
+          </div>
+        </header>
+
         <div class="search__container">
           <h1 class="search__title">Что в мире творится?</h1>
           <p class="search__subtitle">Введите в поиске любую тему и узнайте, насколько популярной она была в новостях за прошедшую неделю.</p>
-          <div class="search__field">
+          <form class="search__field">
             <input type="text" class="search__input" placeholder="Природа">
             <button class="search__button">Искать</button>
-          </div>
+          </form>
         </div>
         
       </section>
@@ -35,14 +40,14 @@
         <div class="results__container">
 
           <div class="results__loader hidden">
-            <img src="./images/Ellipse.png" alt="loading" class="results__img-loader">
+            <div class="results__img-loader"></div>
             <p class="results__loader-text">Идет поиск новостей...</p>
           </div>
 
           <div class="results__news">
             <div class="results__heading">
               <h2 class="results__title">Результаты поиска</h2>
-              <a href="#" class="link results__link-to-analytics">Посмотреть аналитику ></a>
+              <a href="./analitics.html" class="link results__link-to-analytics">Посмотреть аналитику ></a>
             </div>
     
             <div class="results__news-list">
@@ -90,6 +95,7 @@
             <h2 class="about__title">Об авторе</h2>
             <p class="about__text">Это блок с описанием автора проекта. Здесь следует указать, как вас зовут, чем вы занимаетесь, какими технологиями разработки владете.</p>
             <p class="about__text">Также можно рассказать о процессе обучения в Практикуме, чему вы тут научились, и чем можете помочь потенциальным заказчикам.</p>
+            <p class="about__text">Если хотите, оставьте свои контакты: email и телефон. Так заказчики смогут с вами связаться.</p>
           </div>
         </div>
       </section>
@@ -100,7 +106,7 @@
         <p class="footer__copyrights">&copy; 2020 Supersite</p>
         <div class="footer__nav">
           <a href="./index.html" class="link footer__link">Главная</a>
-          <a href="#" class="link footer__link">О проекте</a>
+          <a href="./about.html" class="link footer__link">О проекте</a>
           <a href="https://praktikum.yandex.ru" class="link footer__link">Яндекс.Практикум</a>
         </div>
         <div class="footer__icons">

@@ -2,7 +2,7 @@
   padding: 0;
   position: absolute;
   top: 0;
-  left: 464px;
+  left: 777px;
   width: 168px;
   height: 66px;
   border: none;
@@ -21,10 +21,26 @@
 
 .search__button:hover {
   background: #347eff;
-  transition: .5s;
+  transition: 0.5s;
 }
 
 .search__button:active {
   background: #2a65cc;
-  transition: .5s;
+  transition: 0.5s;
+}
+
+@media screen and (min-width: 768px) and (max-width: 1231px) {
+  .search__button {
+    width: 160px;
+    height: 58px;
+    left: 433px;
+  }
+}
+
+@media screen and (min-width: 320px) and (max-width: 767px) {
+  .search__button {
+    width: 288px;
+    top: 84px;
+    left: 0;
+  }
 }

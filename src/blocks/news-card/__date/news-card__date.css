@@ -9,3 +9,17 @@
   line-height: 24px;
   color: #b6bcbf;
 }
+
+@media screen and (min-width: 768px) and (max-width: 1231px) {
+  .news-card__date {
+    width: 128px;
+    padding-left: 16px;
+  }
+}
+
+@media screen and (min-width: 320px) and (max-width: 767px) {
+  .news-card__date {
+    width: 128px;
+    margin-bottom: 15.98px;
+  }
+}
