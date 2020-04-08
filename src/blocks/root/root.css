@@ -1,7 +1,5 @@
 .root {
   margin: auto;
-  min-height: 100vh;
-  min-width: 320px;
   font-family: "Roboto", "Roboto Slab", Arial, Helvetica, sans-serif, serif;
   -moz-osx-font-smoothing: grayscale;
   -webkit-font-smoothing: antialiased;

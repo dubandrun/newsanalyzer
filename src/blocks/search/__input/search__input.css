@@ -1,7 +1,7 @@
 .search__input {
   padding-left: 24px;
   margin-bottom: 80px;
-  width: 608px;
+  width: 584px;
   height: 64px;
   border: none;
   outline: none;
@@ -14,18 +14,18 @@
   color: #1a1b22;
 }
 
-@media screen and (min-width: 768px) and (max-width: 1231px) {
+@media screen and (min-width: 768px) and (max-width: 1250px) {
   .search__input {
     margin-bottom: 48px;
-    width: 448px;
+    width: 424px;
     height: 56px;
   }
 }
 
 @media screen and (min-width: 320px) and (max-width: 767px) {
   .search__input {
-    width: 288px;
-    padding-left: 0;
+    width: 272px;
     margin-bottom: 104px;
   }
+
 }

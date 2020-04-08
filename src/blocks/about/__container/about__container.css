@@ -4,7 +4,7 @@
   display: flex;
 }
 
-@media screen and (min-width: 768px) and (max-width: 1231px) {
+@media screen and (min-width: 768px) and (max-width: 1250px) {
   .about__container {
     width: 688px;
   }

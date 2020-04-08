@@ -14,7 +14,7 @@
   margin-bottom: 0;
 }
 
-@media screen and (min-width: 768px) and (max-width: 1231px) {
+@media screen and (min-width: 768px) and (max-width: 1250px) {
   .about__text {
     width: 424px;
     margin-bottom: 0;

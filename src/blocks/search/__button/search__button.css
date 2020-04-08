@@ -2,7 +2,7 @@
   padding: 0;
   position: absolute;
   top: 0;
-  left: 777px;
+  left: 753px;
   width: 168px;
   height: 66px;
   border: none;
@@ -29,11 +29,11 @@
   transition: 0.5s;
 }
 
-@media screen and (min-width: 768px) and (max-width: 1231px) {
+@media screen and (min-width: 768px) and (max-width: 1250px) {
   .search__button {
     width: 160px;
     height: 58px;
-    left: 433px;
+    left: 409px;
   }
 }
 
