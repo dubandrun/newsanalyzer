@@ -8,8 +8,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <title>NewsAnalyzer</title>
-  <link rel="shortcut icon" href="./images/main.png">
-  <link rel="stylesheet" href="./index.css">
+  <link rel="stylesheet" href="<%= htmlWebpackPlugin.files.chunks.main.css %>">
 </head>
 <body>
   <div class="root">
@@ -21,7 +20,7 @@
           <div class="header__container">
             <a href="./index.html" class="link header__logo header__logo_theme_light">NewsAnalyzer</a>
             <a href="./index.html" class="link header__link-main header__link-main_theme_light header__link-main_theme_main">Главная</a>
-            <a href="./about/about.html" class="link header__link-about header__link-about_theme_light">О проекте</a>
+            <a href="./about.html" class="link header__link-about header__link-about_theme_light">О проекте</a>
           </div>
         </header>
 
@@ -44,25 +43,25 @@
           <div class="results__news">
             <div class="results__heading">
               <h2 class="results__title">Результаты поиска</h2>
-              <a href="./analytics/analitics.html" class="link results__link-to-analytics">Посмотреть аналитику ></a>
+              <a href="./analytics.html" class="link results__link-to-analytics">Посмотреть аналитику ></a>
             </div>
             <div class="results__news-list">
               <div class="news-card">
-                <img src="./images/image_08-min.png" alt="newsimage" class="news-card__image">
+                <img src="<%=require('./images/image_08-min.png').default%>" alt="newsimage" class="news-card__image">
                 <p class="news-card__date">2 августа, 2020</p>
                 <h3 class="news-card__title">Национальное достояние - парки</h3>
                 <p class="news-card__text">В 2016 году Америка отмечала важный юбилей: сто лет назад здесь начала складываться система национальных парков – охраняемых территорий, где и сегодня каждый может приобщиться к природе.</p>
                 <p class="news-card__source">Лента.ру</p>
               </div>
               <div class="news-card">
-                <img src="./images/image_08-min.png" alt="newsimage" class="news-card__image">
+                <img src="<%=require('./images/image_08-min.png').default%>" alt="newsimage" class="news-card__image">
                 <p class="news-card__date">2 августа, 2020</p>
                 <h3 class="news-card__title">Национальное достояние - парки</h3>
                 <p class="news-card__text">В 2016 году Америка отмечала важный юбилей: сто лет назад здесь начала складываться система национальных парков – охраняемых территорий, где и сегодня каждый может приобщиться к природе.</p>
                 <p class="news-card__source">Лента.ру</p>
               </div>
               <div class="news-card">
-                <img src="./images/image_08-min.png" alt="newsimage" class="news-card__image">
+                <img src="<%=require('./images/image_08-min.png').default%>" alt="newsimage" class="news-card__image">
                 <p class="news-card__date">2 августа, 2020</p>
                 <h3 class="news-card__title">Национальное достояние - парки</h3>
                 <p class="news-card__text">В 2016 году Америка отмечала важный юбилей: сто лет назад здесь начала складываться система национальных парков – охраняемых территорий, где и сегодня каждый может приобщиться к природе.</p>
@@ -72,7 +71,7 @@
             <button class="results__button">Показать еще</button>
           </div>
           <div class="results__noresults hidden">
-            <img src="./images/not-found_v1.png" alt="notfound" class="results__img-noresults">
+            <img src="<%=require('./images/not-found_v1.png').default%>" alt="notfound" class="results__img-noresults">
             <p class="results__noresults-title">Ничего не найдено</p>
             <p class="results__noresults-text">К сожалению, по вашему запросу ничего не найдено</p>
           </div>
@@ -81,7 +80,7 @@
 
       <section class="about">
         <div class="about__container">
-          <img src="./images/image-03.png" alt="" class="about__photo">
+          <img src="<%=require('./images/image-03.png').default%>" alt="" class="about__photo">
           <div class="about__description">
             <h2 class="about__title">Об авторе</h2>
             <p class="about__text">Это блок с описанием автора проекта. Здесь следует указать, как вас зовут, чем вы занимаетесь, какими технологиями разработки владете.</p>
@@ -98,20 +97,24 @@
         <p class="footer__copyrights">&copy; 2020 Supersite</p>
         <div class="footer__nav">
           <a href="./index.html" class="link footer__link">Главная</a>
-          <a href="./about/about.html" class="link footer__link">О проекте</a>
+          <a href="./about.html" class="link footer__link">О проекте</a>
           <a href="https://praktikum.yandex.ru" class="link footer__link" target="_blank">Яндекс.Практикум</a>
         </div>
         <div class="footer__icons">
-          <a href="https://www.github.com/dubandrun" class="link footer__icon" target="_blank"><img src="./images/gh-min.png" alt="github" class="footer__social"></a>
-          <a href="https://www.facebook.com/dubandrun" class="link footer__icon" target="_blank"><img src="./images/fb-min.png" alt="facebook" class="footer__social"></a>
+          <a href="https://www.github.com/dubandrun" class="link footer__icon" target="_blank">
+            <img src="<%=require('./images/gh-min.png').default%>" alt="github" class="footer__social">
+          </a>
+          <a href="https://www.facebook.com/dubandrun" class="link footer__icon" target="_blank">
+            <img src="<%=require('./images/fb-min.png').default%>" alt="facebook" class="footer__social">
+          </a>
         </div>
       </div>
     </footer>
   
   </div>
 
-  <script src="./index.js"></script>
-  
+  <script src="<%= htmlWebpackPlugin.files.chunks.main.entry %>"></script>
+
 </body>
 </html>
 
