@@ -14,9 +14,9 @@
   color: #1a1b22;
 }
 
-.search__input:focus + .search__button {
+/* .search__input:focus + .search__button {
   background: #347EFF;
-}
+} */
 
 @media screen and (min-width: 768px) and (max-width: 1250px) {
   .search__input {
