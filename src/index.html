@@ -9,6 +9,7 @@
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <title>NewsAnalyzer</title>
   <link rel="stylesheet" href="<%= htmlWebpackPlugin.files.chunks.main.css %>">
+  <link rel="shortcut icon" href="./favicon.png">
 </head>
 <body>
   <div class="root">
@@ -28,18 +29,19 @@
           <h1 class="search__title">Что в мире творится?</h1>
           <p class="search__subtitle">Введите в поиске любую тему и узнайте, насколько популярной она была в новостях за прошедшую неделю.</p>
           <form class="search__field" name="search">
-            <input type="text" class="search__input" placeholder="Природа" pattern="^[a-zA-Zа-яА-ЯЁё0-9]+$" minlength="2" maxlength="20" required>
+            <input type="text" class="search__input" name="keyword" placeholder="Природа" pattern="^[a-zA-Zа-яА-ЯЁё0-9]+$" minlength="2" maxlength="20" required>
             <button class="search__button">Искать</button>
           </form>
         </div>
       </section>
 
-      <section class="results">
+      <section class="results hidden">
         <div class="results__container">
           <div class="results__loader hidden">
             <div class="results__img-loader"></div>
             <p class="results__loader-text">Идет поиск новостей...</p>
           </div>
+          <p class="results__error hidden">«Во время запроса произошла ошибка. Возможно, проблема с соединением или сервер недоступен. Подождите немного и попробуйте ещё раз»</p>
           <div class="results__news">
             <div class="results__heading">
               <h2 class="results__title">Результаты поиска</h2>

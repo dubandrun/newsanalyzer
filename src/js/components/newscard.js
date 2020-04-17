@@ -13,5 +13,6 @@ export default class NewsCard {
              </a>
            </div>`;
         return template;
+
     }
 }

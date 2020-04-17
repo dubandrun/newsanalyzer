@@ -2,13 +2,13 @@
   margin: 0;
   display: flex;
   list-style-type: none;
-  margin-right: 320px;
+  margin-right: 351px;
   padding-left: 0;
 }
 
 @media screen and (min-width: 768px) and (max-width: 1250px) {
   .footer__links {
-    margin-right: 85px;
+    margin-right: 96px;
   }
 }
 

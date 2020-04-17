@@ -63,22 +63,19 @@ module.exports = {
       canPrint: true,
     }),
     new HtmlWebpackPlugin({
-      inject: true,
+      inject: false,
       template: "./src/index.html",
       filename: "index.html",
-      favicon: "./src/images/favicon.png"
     }),
     new HtmlWebpackPlugin({
-      inject: true,
+      inject: false,
       template: "./src/about/about.html",
       filename: "about.html",
-      favicon: "./src/images/favicon.png"
     }),
     new HtmlWebpackPlugin({
-      inject: true,
+      inject: false,
       template: "./src/analytics/analytics.html",
       filename: "analytics.html",
-      favicon: "./src/images/favicon.png"
     }),
     new WebpackMd5Hash(),
     new webpack.DefinePlugin({
