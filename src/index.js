@@ -2,23 +2,22 @@ import "./index.css";
 
 import NewsApi from "./js/modules/newsapi";
 
-import {RESULTS_NEWS_LIST} from "./js/constants/constants";
-import {SEARCH_FIELD} from "./js/constants/constants";
-import {INPUT} from "./js/constants/constants";
-import {RESULTS} from "./js/constants/constants";
-import {STORAGE_DATA} from "./js/constants/constants";
-import {RESULTS__NEWS} from "./js/constants/constants";
-import {RESULTS__ERROR} from "./js/constants/constants";
-import {RESULTS__NORESULTS} from "./js/constants/constants";
-import {RESULTS__LOADER} from "./js/constants/constants";
-import {SHOW_MORE} from "./js/constants/constants";
-
+import {
+  RESULTS_NEWS_LIST,
+  SEARCH_FIELD,
+  INPUT,
+  STORAGE_DATA,
+  RESULTS,
+  RESULTS__NEWS,
+  RESULTS__ERROR,
+  RESULTS__NORESULTS,
+  RESULTS__LOADER,
+  SHOW_MORE
+} from "./js/constants/constants";
 
 import DataStorage from "./js/modules/datastorage";
 import NewsCardList from "./js/components/newscardlist"
 import NewsCard from "./js/components/newscard"
-
-
 
 (function () {
   const NEWS_API = new NewsApi(INPUT);
@@ -48,12 +47,9 @@ import NewsCard from "./js/components/newscard"
     NEWS_CARD_LIST.getNews();
   })
 
-  SHOW_MORE.addEventListener("click", () => NEWS_CARD_LIST.showMoreNews(JSON.parse(localStorage.getItem("news"))));
-
+  SHOW_MORE.addEventListener("click", () => NEWS_CARD_LIST.showMoreNews(JSON.parse(localStorage.getItem(`${STORAGE_DATA}`))));
 })();
 
-//ДОБАВИТЬ!
-// - image.onerror  - чтобы при ошибке загрузки изображения подгружалось что-то другое
 
 
 

@@ -68,7 +68,6 @@ export default class NewsCardList {
     if (countedCards < newsArray.articles.length) {
       this.showMoreButton.classList.remove("hidden");
     } else {
-      
       this.showMoreButton.classList.add("hidden");
     }
   }
@@ -85,9 +84,7 @@ export default class NewsCardList {
         newsArticles[i].source.name
     ); 
     this.addCard(newsArticles[i]);
-    
     } 
-    // this.hideAndShowMoreNewsButton(newsArray);
   }
   
   showMoreNews(newsArray) {
@@ -114,7 +111,7 @@ export default class NewsCardList {
     })
     .catch((error) => {
       this.errorOn();
-      throw new Error(error.message);
+      console.log(`Ошибка: ${error.message}`);
     })
   }
 

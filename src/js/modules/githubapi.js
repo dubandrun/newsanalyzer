@@ -1,20 +1,22 @@
 export default class GithubApi {
-  // constructor(input) {
-  //   this.input = input;
-  // }
+  constructor(user, repo, commitsPerPage, token) {
+    this.user = user;
+    this.repo = repo;
+    this.commitsPerPage = commitsPerPage;
+    this.token = token;
+  }
 
   getCommits() {
-    return fetch("https://api.github.com/dubandrun/newsanalyzer/commits", {
+    return fetch(`https://api.github.com/repos/${this.user}/${this.repo}/commits?&per_page=${this.commitsPerPage}`, {
       method: "GET",
       headers: {
-        "Authorization": "token "
+        'Content-Type': 'application/json', 'Authorization': `${this.token}`
       }
     })
       .then((res) =>
         res.ok ? res.json() : Promise.reject(`Ошибка: ${res.status}`)
       )
       .then((res) => {
-        console.log(res);
         return res;
       })
       .catch((error) => {
@@ -28,7 +30,7 @@ export default class GithubApi {
 //https://www.youtube.com/watch?v=b0W7SHHDc28 видео 
 //https://github.com/ceceliacreates/APITools/blob/master/PullCommitsSinceRelease/PullCommitsSinceRelease.js
 
-
+///api/v1/repos/{user}/{repo}/git/commits?sha={id}&page={p}
 
 
 
