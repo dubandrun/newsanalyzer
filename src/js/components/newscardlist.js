@@ -11,7 +11,8 @@ export default class NewsCardList {
     noResultsBlock,
     newsBlock,
     loaderBlock,
-    showMoreButton
+    showMoreButton,
+    input
     ) {
     this.resultsSection = resultsSection;
     this.cardsContainer = cardsContainer;
@@ -24,6 +25,7 @@ export default class NewsCardList {
     this.loaderBlock = loaderBlock;
     this.startCounter = 0;
     this.showMoreButton = showMoreButton;
+    this.input = input;
   }
 
   addCard(cardTemplate) {
@@ -84,30 +86,30 @@ export default class NewsCardList {
         newsArticles[i].source.name
     ); 
     this.addCard(newsArticles[i]);
-    } 
+    }
+    this.hideAndShowMoreNewsButton(newsArray); 
   }
   
   showMoreNews(newsArray) {
     this.startCounter += COUNTER_PLUS;
     this.renderNews(newsArray);
-    this.hideAndShowMoreNewsButton(newsArray);
   }
 
   getNews() {
     this.preloaderOn();
+    this.startCounter = 0;
     this.newsApi.getNews()
     .then((res) => {
       if (+res.totalResults !== 0) {
         this.clearLastNews();
         localStorage.clear();
         this.noResultsOff();
-        localStorage.setItem(`${this.storageData}`, JSON.stringify(res));  
+        localStorage.setItem("keyword", `${this.input.value}`); 
+        localStorage.setItem(`${this.storageData}`, JSON.stringify(res)); 
+        this.renderNews(JSON.parse(localStorage.getItem(`${this.storageData}`)));
       } else {
         this.noResultsOn();
         }
-    })
-    .then(() => {
-      this.renderNews(JSON.parse(localStorage.getItem(`${this.storageData}`)));
     })
     .catch((error) => {
       this.errorOn();

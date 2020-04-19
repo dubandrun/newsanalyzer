@@ -5,8 +5,8 @@ export default class NewsApi {
   getNews() {
     return fetch('http://newsapi.org/v2/everything?' +
     `q=${this.input.value}&` +
-    'from=2020-04-09&' +
-    'to=2020-04-16&' +
+    'from=2020-04-10&' +
+    'to=2020-04-17&' +
     'pageSize=9&' +
     'sortBy=popularity&' +
     'language=ru&' +

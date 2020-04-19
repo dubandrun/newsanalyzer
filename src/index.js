@@ -32,7 +32,8 @@ import NewsCard from "./js/components/newscard"
     RESULTS__NORESULTS,
     RESULTS__NEWS,
     RESULTS__LOADER,
-    SHOW_MORE
+    SHOW_MORE,
+    INPUT
   ); 
 
   const DATA_STORAGE = new DataStorage(
