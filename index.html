@@ -8,8 +8,9 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <title>NewsAnalyzer</title>
-  <link rel="stylesheet" href="main.ae65d03cb5c7f799c5a4.css">
-<link rel="shortcut icon" href="favicon.png"><link href="main.ae65d03cb5c7f799c5a4.css" rel="stylesheet"><link href="about.5a715e2a27a70663d735.css" rel="stylesheet"><link href="analytics.20e2be4c695b43938e25.css" rel="stylesheet"></head>
+  <link rel="stylesheet" href="main/main.f52a38473692f744bb35.css">
+  <link rel="shortcut icon" href="./favicon.png">
+</head>
 <body>
   <div class="root">
     
@@ -27,46 +28,26 @@
         <div class="search__container">
           <h1 class="search__title">Что в мире творится?</h1>
           <p class="search__subtitle">Введите в поиске любую тему и узнайте, насколько популярной она была в новостях за прошедшую неделю.</p>
-          <form class="search__field">
-            <input type="text" class="search__input" placeholder="Природа" pattern="^[a-zA-Zа-яА-ЯЁё0-9]+$" minlength="2" maxlength="20" required>
+          <form class="search__field" name="search">
+            <input type="text" class="search__input" name="keyword" placeholder="Природа" pattern="^[a-zA-Zа-яА-ЯЁё0-9]+$" minlength="2" maxlength="20" required>
             <button class="search__button">Искать</button>
           </form>
         </div>
       </section>
 
-      <section class="results">
+      <section class="results hidden">
         <div class="results__container">
           <div class="results__loader hidden">
             <div class="results__img-loader"></div>
             <p class="results__loader-text">Идет поиск новостей...</p>
           </div>
+          <p class="results__error hidden">«Во время запроса произошла ошибка. Возможно, проблема с соединением или сервер недоступен. Подождите немного и попробуйте ещё раз»</p>
           <div class="results__news">
             <div class="results__heading">
               <h2 class="results__title">Результаты поиска</h2>
               <a href="./analytics.html" class="link results__link-to-analytics">Посмотреть аналитику ></a>
             </div>
             <div class="results__news-list">
-              <div class="news-card">
-                <img src="./images/image_08-min.png" alt="обложка новости" class="news-card__image">
-                <p class="news-card__date">2 августа, 2020</p>
-                <h3 class="news-card__title">Национальное достояние - парки</h3>
-                <p class="news-card__text">В 2016 году Америка отмечала важный юбилей: сто лет назад здесь начала складываться система национальных парков – охраняемых территорий, где и сегодня каждый может приобщиться к природе.</p>
-                <p class="news-card__source">Лента.ру</p>
-              </div>
-              <div class="news-card">
-                <img src="./images/image_08-min.png" alt="обложка новости" class="news-card__image">
-                <p class="news-card__date">2 августа, 2020</p>
-                <h3 class="news-card__title">Национальное достояние - парки</h3>
-                <p class="news-card__text">В 2016 году Америка отмечала важный юбилей: сто лет назад здесь начала складываться система национальных парков – охраняемых территорий, где и сегодня каждый может приобщиться к природе.</p>
-                <p class="news-card__source">Лента.ру</p>
-              </div>
-              <div class="news-card">
-                <img src="./images/image_08-min.png" alt="обложка новости" class="news-card__image">
-                <p class="news-card__date">2 августа, 2020</p>
-                <h3 class="news-card__title">Национальное достояние - парки</h3>
-                <p class="news-card__text">В 2016 году Америка отмечала важный юбилей: сто лет назад здесь начала складываться система национальных парков – охраняемых территорий, где и сегодня каждый может приобщиться к природе.</p>
-                <p class="news-card__source">Лента.ру</p>
-              </div>
             </div>
             <button class="results__button">Показать еще</button>
           </div>
@@ -80,12 +61,13 @@
 
       <section class="about">
         <div class="about__container">
-          <img src="./images/image-03.png" alt="фотография автора сайта" class="about__photo">
+          <img src="./images/image-03.jpg" alt="фотография автора сайта" class="about__photo">
           <div class="about__description">
             <h2 class="about__title">Об авторе</h2>
-            <p class="about__text">Это блок с описанием автора проекта. Здесь следует указать, как вас зовут, чем вы занимаетесь, какими технологиями разработки владете.</p>
-            <p class="about__text">Также можно рассказать о процессе обучения в Практикуме, чему вы тут научились, и чем можете помочь потенциальным заказчикам.</p>
-            <p class="about__text">Если хотите, оставьте свои контакты: email и телефон. Так заказчики смогут с вами связаться.</p>
+            <p class="about__text">Меня зовут Антон. Я начинающий frontend-разработчик. Закончил курсы Яндекс.Практикум. Успешно освоил адаптивную кросс-браузерную вёрстку сайтов. В своих проектах научился применять
+              БЭМ-методологию. Владею ES5/ES6 синтаксисом Javascript. Умею работать с WebAPI.</p>
+            <p class="about__text">В ходе обучения выполнял проекты, которые проходили ревью менторов. С ними вы так же можете ознакомиться в моём портфолио на github.</p>
+            <p class="about__text"></p>
           </div>
         </div>
       </section>
@@ -94,7 +76,7 @@
 
     <footer class="footer">
       <div class="footer__container">
-        <p class="footer__copyrights">&copy; 2020 Supersite</p>
+        <p class="footer__copyrights">&copy; 2020 NewsAnalyzer</p>
         <nav class="footer__nav">
           <ul class="footer__links">
             <li class="footer__nav-link"><a href="./index.html" class="link footer__link">Главная</a></li>
@@ -115,8 +97,8 @@
   
   </div>
 
-  <script src="main.048dd97f94bbfcb260a5.js"></script>
+  <script src="main/main.98db562795710bcba1cf.js"></script>
 
-<script type="text/javascript" src="main.048dd97f94bbfcb260a5.js"></script><script type="text/javascript" src="about.019036f7c574c7975954.js"></script><script type="text/javascript" src="analytics.491705e3e121a5a7fbe9.js"></script></body>
+</body>
 </html>
 
