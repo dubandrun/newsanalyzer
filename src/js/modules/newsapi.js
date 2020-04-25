@@ -1,16 +1,24 @@
+import {getCurrentDate, getWeekAgoDate} from "../utils/utils"
+
 export default class NewsApi {
-  constructor(input) {
+  constructor(
+    input,
+    newsToken
+    ) {
     this.input = input;
+    this.newsToken = newsToken;
   }
+  
+//получение данных с News Api
   getNews() {
-    return fetch('http://newsapi.org/v2/everything?' +
+    return fetch('https://newsapi.org/v2/everything?' +
     `q=${this.input.value}&` +
-    'from=2020-04-10&' +
-    'to=2020-04-17&' +
-    'pageSize=9&' +
+    `from=${getCurrentDate()}&` +
+    `to=${getWeekAgoDate()}&` +
+    'pageSize=100&' +
     'sortBy=popularity&' +
     'language=ru&' +
-    'apiKey=b99ed99ced6a450b962a2138904e4943'
+    `apiKey=${this.newsToken}`
     )
       .then((res) => 
         res.ok ? res.json() :  Promise.reject(`Ошибка: ${res.status}`)

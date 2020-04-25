@@ -6,6 +6,8 @@
   height: 64px;
   border: none;
   outline: none;
+  box-sizing: border-box;
+  border: 1px solid #fff;
   border-radius: 100px;
   font-family: Roboto;
   font-style: normal;
@@ -15,9 +17,13 @@
   color: #1a1b22;
 }
 
-/* .search__input:focus + .search__button {
-  background: #347EFF;
-} */
+.search__input:focus {
+  border: solid 1px #2F71E5;
+}
+
+.search__input:focus + .search__button{
+  background:#347EFF;
+}
 
 @media screen and (min-width: 768px) and (max-width: 1250px) {
   .search__input {

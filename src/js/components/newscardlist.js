@@ -1,11 +1,12 @@
-import {COUNTER_PLUS} from '../constants/constants'
+import {COUNTER_PLUS} from "../constants/constants";
+import {getFormatedDateForCards} from "../utils/utils";
 
 export default class NewsCardList {
   constructor(
     resultsSection,
     cardsContainer,
     storageData,
-    newsCard, 
+    newsCard,
     newsApi,
     errorBlock,
     noResultsBlock,
@@ -13,14 +14,14 @@ export default class NewsCardList {
     loaderBlock,
     showMoreButton,
     input
-    ) {
+  ) {
     this.resultsSection = resultsSection;
     this.cardsContainer = cardsContainer;
     this.storageData = storageData;
     this.newsCard = newsCard;
     this.newsApi = newsApi;
     this.errorBlock = errorBlock;
-    this.noResultsBlock =noResultsBlock;
+    this.noResultsBlock = noResultsBlock;
     this.newsBlock = newsBlock;
     this.loaderBlock = loaderBlock;
     this.startCounter = 0;
@@ -28,27 +29,32 @@ export default class NewsCardList {
     this.input = input;
   }
 
-  addCard(cardTemplate) {
+  //добавление карточки новостей в разметку станицы
+  _addCard(cardTemplate) {
     this.cardsContainer.insertAdjacentHTML("beforeend", cardTemplate);
   }
-  
+
+  //очиста контейнера с карточками
   clearLastNews() {
-    this.cardsContainer.innerHTML = '';
+    this.cardsContainer.textContent = "";
   }
 
+  //вывод прелоадера
   preloaderOn() {
     this.newsBlock.classList.add("hidden");
     this.loaderBlock.classList.remove("hidden");
   }
-  
+
+  //скрыть уведомление с отсутствием результов
   noResultsOff() {
     this.noResultsBlock.classList.add("hidden");
     this.errorBlock.classList.add("hidden");
     this.resultsSection.classList.remove("hidden");
-    this.newsBlock.classList.remove("hidden")
+    this.newsBlock.classList.remove("hidden");
     this.loaderBlock.classList.add("hidden");
   }
 
+  //вывести уведомление с отсутствием результов
   noResultsOn() {
     this.resultsSection.classList.remove("hidden");
     this.noResultsBlock.classList.remove("hidden");
@@ -56,7 +62,8 @@ export default class NewsCardList {
     this.newsBlock.classList.add("hidden");
     this.loaderBlock.classList.add("hidden");
   }
-  
+
+  //вывести ошибку получения данных с News Api
   errorOn() {
     this.resultsSection.classList.remove("hidden");
     this.errorBlock.classList.remove("hidden");
@@ -65,6 +72,7 @@ export default class NewsCardList {
     this.noResultsBlock.classList.add("hidden");
   }
 
+  //вывести\скрыть кнопку "Показать еще"
   hideAndShowMoreNewsButton(newsArray) {
     let countedCards = this.cardsContainer.childElementCount;
     if (countedCards < newsArray.articles.length) {
@@ -73,90 +81,55 @@ export default class NewsCardList {
       this.showMoreButton.classList.add("hidden");
     }
   }
-  
+
+  //отрисовка карточек новостей
   renderNews(newsArray) {
     const newsArticles = newsArray.articles;
     for (let i = this.startCounter; i < this.startCounter + COUNTER_PLUS; i++) {
-      newsArticles[i] = this.newsCard.create(
-        newsArticles[i].url, 
-        newsArticles[i].urlToImage, 
-        newsArticles[i].publishedAt, 
-        newsArticles[i].title, 
-        newsArticles[i].description, 
-        newsArticles[i].source.name
-    ); 
-    this.addCard(newsArticles[i]);
+      if (newsArticles[i]) {
+        let news = this.newsCard.create(
+          newsArticles[i].url,
+          newsArticles[i].urlToImage,
+          getFormatedDateForCards(newsArticles[i].publishedAt),
+          newsArticles[i].title,
+          newsArticles[i].description,
+          newsArticles[i].source.name
+        );
+        this._addCard(news);
+      }
     }
-    this.hideAndShowMoreNewsButton(newsArray); 
+    this.hideAndShowMoreNewsButton(newsArray);
   }
-  
+
+  //отрисовка дополнительных карточек новостей при нажатии кнопки "Показать еще"
   showMoreNews(newsArray) {
     this.startCounter += COUNTER_PLUS;
     this.renderNews(newsArray);
   }
 
+  //получение данных с new api и запись их в локальное хранилище браузера
   getNews() {
     this.preloaderOn();
     this.startCounter = 0;
-    this.newsApi.getNews()
-    .then((res) => {
-      if (+res.totalResults !== 0) {
-        this.clearLastNews();
-        localStorage.clear();
-        this.noResultsOff();
-        localStorage.setItem("keyword", `${this.input.value}`); 
-        localStorage.setItem(`${this.storageData}`, JSON.stringify(res)); 
-        this.renderNews(JSON.parse(localStorage.getItem(`${this.storageData}`)));
-      } else {
-        this.noResultsOn();
+    this.newsApi
+      .getNews()
+      .then((res) => {
+        if (+res.totalResults !== 0) {
+          this.clearLastNews();
+          localStorage.clear();
+          this.noResultsOff();
+          localStorage.setItem("keyword", `${this.input.value}`);
+          localStorage.setItem(`${this.storageData}`, JSON.stringify(res));
+          this.renderNews(
+            JSON.parse(localStorage.getItem(`${this.storageData}`))
+          );
+        } else {
+          this.noResultsOn();
         }
-    })
-    .catch((error) => {
-      this.errorOn();
-      console.log(`Ошибка: ${error.message}`);
-    })
+      })
+      .catch((error) => {
+        this.errorOn();
+        console.log(`Ошибка: ${error.message}`);
+      });
   }
-
-  
-
 }
-
-
-
-
-
-
-//окно ошибки, если нет ответа от сервера
-// if (res.status !== "ok") {
-//   this.errorBlock.classList.remove("hidden");
-//   this.newsBlock.classList.add("hidden");
-//   this.loaderBlock.classList.add("hidden");
-// } else { }
-
-
-
-
-// export default class NewsCardList {
-//   constructor(
-//     cardsContainer,
-//     newsCard
-//     ) {
-//     this.cardsContainer = cardsContainer;
-//     this.newsCard = newsCard;
-//   }
-
-//   addCard(cardTemplate) {
-//     this.cardsContainer.insertAdjacentHTML("beforeEnd", cardTemplate);
-//   }
-
-//   renderCards() {
-//     // event.preventDefault();
-//     const newsObj = JSON.parse(localStorage.getItem("item"));
-//     const newsArray = newsObj.articles;
-//     console.log(newsArray);
-//     for (let data of newsArray) {
-//       const newsCardFromArray = this.newsCard.create(data.url, data.urlToImage, data.publishedAt, data.title, data.description, data.source.name);
-//       this.addCard(newsCardFromArray); 
-//     }
-//   }
-// }

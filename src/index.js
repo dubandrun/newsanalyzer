@@ -12,7 +12,8 @@ import {
   RESULTS__ERROR,
   RESULTS__NORESULTS,
   RESULTS__LOADER,
-  SHOW_MORE
+  SHOW_MORE,
+  NEWSAPI_TOKEN
 } from "./js/constants/constants";
 
 import DataStorage from "./js/modules/datastorage";
@@ -20,8 +21,13 @@ import NewsCardList from "./js/components/newscardlist"
 import NewsCard from "./js/components/newscard"
 
 (function () {
-  const NEWS_API = new NewsApi(INPUT);
+  const NEWS_API = new NewsApi(
+    INPUT, 
+    NEWSAPI_TOKEN
+  );
+
   const NEWS_CARD = new NewsCard();
+  
   const NEWS_CARD_LIST = new NewsCardList(
     RESULTS,
     RESULTS_NEWS_LIST,
@@ -45,6 +51,9 @@ import NewsCard from "./js/components/newscard"
 
   SEARCH_FIELD.addEventListener("submit", (event) => {
     event.preventDefault();
+    if (event.key === "Enter") {
+      NEWS_CARD_LIST.getNews();
+    }
     NEWS_CARD_LIST.getNews();
   })
 

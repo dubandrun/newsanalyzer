@@ -4,7 +4,6 @@ import {
   GIT_USER, 
   GIT_REPO, 
   GIT_COMMITS_PER_PAGE, 
-  GIT_TOKEN,
   COMMITS_SLIDER,
   COMMITS,
   COMMITS_ERROR,
@@ -19,8 +18,7 @@ import CommitCard from "../js/components/commitcard";
   const GITHUB_API = new GithubApi(
     GIT_USER,
     GIT_REPO,
-    GIT_COMMITS_PER_PAGE,
-    GIT_TOKEN
+    GIT_COMMITS_PER_PAGE
   );
   GITHUB_API.getCommits();
   

@@ -1,4 +1,3 @@
-
 export default class DataStorage {
 constructor(
   newsContainer,
@@ -10,6 +9,7 @@ constructor(
   this.storageData = storageData;
 }
 
+//вывод прошлых результатов поиска из локального хранилища на странице
   getLastResults() {
     if (this.storageData in localStorage) {
       const newsArray = JSON.parse(localStorage.getItem(`${this.storageData}`));

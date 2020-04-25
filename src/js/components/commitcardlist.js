@@ -1,4 +1,5 @@
 import sliderSettings from "../../blocks/commits/__slider/slidersettings";
+import {getFormatedDateForCards} from "../utils/utils"
 
 export default class CommitCardList {
   constructor(
@@ -17,21 +18,24 @@ export default class CommitCardList {
     this.error = error;
   }
 
+//добавление коммита в разметку слайдера
   addCommits(commitTemplate) {
     this.sliderContainer.insertAdjacentHTML("afterbegin", commitTemplate);
   }
 
+//вывод ошибки при отсутствии соединения с github api
   errorOn() {
     this.error.classList.remove("hidden");
     this.commitContainer.style.height  = "466px";
   }
 
+  //получение коммитов с Github Api и их добавление в разметку страницы 
   getCommits() {
     this.githubApi.getCommits()
     .then((res) => {
       for (let array of res) {
         const commitTemplate = this.commitCard.create(
-          array.commit.committer.date, 
+          getFormatedDateForCards(array.commit.committer.date), 
           array.author.avatar_url, 
           array.commit.committer.name, 
           array.commit.committer.email, 
@@ -41,7 +45,6 @@ export default class CommitCardList {
         this.addCommits(commitTemplate);
       }
       sliderSettings();
-      
     })
     .catch((error) => {
       this.errorOn();

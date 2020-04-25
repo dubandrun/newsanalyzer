@@ -1,7 +1,7 @@
 .footer__copyrights {
   margin: 0;
   margin-right: 234px;
-  width: 200px;
+  width: 159px;
   font-family: Roboto;
   font-style: normal;
   font-weight: normal;
@@ -12,8 +12,8 @@
 
 @media screen and (min-width: 768px) and (max-width: 1250px) {
   .footer__copyrights {
-    margin-right: 30px;
-    width: 142px;
+    margin-right: 35px;
+    width: 158px;
   }
 }
 
@@ -21,7 +21,7 @@
   .footer__copyrights {
     position: absolute;
     bottom: 22px;
-    width: 142px;
+    width: 158px;
     margin-right: 0;
   }
 }

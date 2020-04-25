@@ -1,3 +1,4 @@
+//шаблон карточки для коммита
 export default class CommitCard {
   create(date, urlToImage, name, mail, message, urlToCommit) {
     const template = `
