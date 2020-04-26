@@ -12,6 +12,7 @@ export const RESULTS__NORESULTS = document.querySelector(".results__noresults");
 export const RESULTS__LOADER = document.querySelector(".results__loader");
 export const SHOW_MORE = document.querySelector(".results__button");
 export const COUNTER_PLUS = 3;
+export const ERROR_IMAGE = "https://cs8.pikabu.ru/post_img/big/2016/02/04/7/145458292112119207.jpg";
 
 ///Страница О проекте
 export const GIT_USER = "dubandrun";

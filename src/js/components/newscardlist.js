@@ -13,7 +13,8 @@ export default class NewsCardList {
     newsBlock,
     loaderBlock,
     showMoreButton,
-    input
+    input,
+    errorImg
   ) {
     this.resultsSection = resultsSection;
     this.cardsContainer = cardsContainer;
@@ -27,6 +28,7 @@ export default class NewsCardList {
     this.startCounter = 0;
     this.showMoreButton = showMoreButton;
     this.input = input;
+    this.errorImg = errorImg;
   }
 
   //добавление карточки новостей в разметку станицы
@@ -82,14 +84,22 @@ export default class NewsCardList {
     }
   }
 
+  //обработка ошибки отстутствия изображения для новости
+  checkArticleImage(articleImage) {
+    if (articleImage === null) {
+      articleImage = `${this.errorImg}`;
+    }
+    return articleImage;
+  }
+  
   //отрисовка карточек новостей
   renderNews(newsArray) {
     const newsArticles = newsArray.articles;
     for (let i = this.startCounter; i < this.startCounter + COUNTER_PLUS; i++) {
-      if (newsArticles[i]) {
+        let articalImage = this.checkArticleImage(newsArticles[i].urlToImage);
         let news = this.newsCard.create(
           newsArticles[i].url,
-          newsArticles[i].urlToImage,
+          articalImage,
           getFormatedDateForCards(newsArticles[i].publishedAt),
           newsArticles[i].title,
           newsArticles[i].description,
@@ -97,7 +107,6 @@ export default class NewsCardList {
         );
         this._addCard(news);
       }
-    }
     this.hideAndShowMoreNewsButton(newsArray);
   }
 

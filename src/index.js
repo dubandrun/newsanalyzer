@@ -13,7 +13,8 @@ import {
   RESULTS__NORESULTS,
   RESULTS__LOADER,
   SHOW_MORE,
-  NEWSAPI_TOKEN
+  NEWSAPI_TOKEN,
+  ERROR_IMAGE
 } from "./js/constants/constants";
 
 import DataStorage from "./js/modules/datastorage";
@@ -39,7 +40,8 @@ import NewsCard from "./js/components/newscard"
     RESULTS__NEWS,
     RESULTS__LOADER,
     SHOW_MORE,
-    INPUT
+    INPUT,
+    ERROR_IMAGE
   ); 
 
   const DATA_STORAGE = new DataStorage(
