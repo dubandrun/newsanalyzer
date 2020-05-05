@@ -1,15 +1,15 @@
 //получение текущей даты в формате "год-месяц-число"
 export function getCurrentDate() {
-  let date = new Date();
-  let currentDate =
+  const date = new Date();
+  const currentDate =
     date.getFullYear() + "-" + (date.getMonth() + 1) + "-" + date.getDate();
   return currentDate;
 }
 
 //получение даты 6-дневной давности
 export function getWeekAgoDate() {
-  let weekAgo = new Date(new Date() - 6 * 24 * 3600 * 1000);
-  let weekAgoFormatDate =
+  const weekAgo = new Date(new Date() - 6 * 24 * 3600 * 1000);
+  const weekAgoFormatDate =
     weekAgo.getFullYear() +
     "-" +
     (weekAgo.getMonth() + 1) +
@@ -20,8 +20,8 @@ export function getWeekAgoDate() {
 
 //получения текущего месяца 
 export function getCurrentMonth() {
-  let month = new Date();
-  let options = {
+  const month = new Date();
+  const options = {
     month: "long",
   };
   return month.toLocaleString("ru", options);
@@ -29,38 +29,38 @@ export function getCurrentMonth() {
 
 //получени даты текущего дня в формате "число, день_недели"
 export function getFormatedCurrentday() {
-  let formatedCurrentDay = new Date();
-  let formatedDay = ["Вс", "Пн", "Вт", "Ср", "Чт", "Пт", "Сб"][formatedCurrentDay.getDay()];
-  let formatedDate = formatedCurrentDay.getDate();
-  let dayAndDate = formatedDate+", "+formatedDay
+  const formatedCurrentDay = new Date();
+  const formatedDay = ["Вс", "Пн", "Вт", "Ср", "Чт", "Пт", "Сб"][formatedCurrentDay.getDay()];
+  const formatedDate = formatedCurrentDay.getDate();
+  const dayAndDate = formatedDate+", "+formatedDay
   return dayAndDate;
 }
 
 //универсальное форматирование в вид "число, день_недели"
 export function getFormatedDate(day) {
-  let findDay= ["Вс", "Пн", "Вт", "Ср", "Чт", "Пт", "Сб"][new Date(
+  const findDay= ["Вс", "Пн", "Вт", "Ср", "Чт", "Пт", "Сб"][new Date(
     new Date() - day * 24 * 3600 * 1000
     ).getDay()]
-  let findDate = new Date(
+  const findDate = new Date(
     new Date() - day * 24 * 3600 * 1000
     ).getDate()
-  let dayAndDate = findDate+", "+findDay
+  const dayAndDate = findDate+", "+findDay
   return dayAndDate
 }
 
 //получение дня недели в сокращенном формате
 export function getdayDateformat(day) {
-  let findDay= ["Вс", "Пн", "Вт", "Ср", "Чт", "Пт", "Сб"][new Date(day).getDay()]
-  let findDate = new Date(day).getDate()
-  let dayAndDate = findDate+", "+findDay
+  const findDay= ["Вс", "Пн", "Вт", "Ср", "Чт", "Пт", "Сб"][new Date(day).getDay()]
+  const findDate = new Date(day).getDate()
+  const dayAndDate = findDate+", "+findDay
   return dayAndDate
 }
 
 //получение даты в формате "день_недели месяц, год"
 export function getFormatedDateForCards(day) {
-  let date = new Date(day);
-  let year = date.getFullYear();
-  let month = [
+  const date = new Date(day);
+  const year = date.getFullYear();
+  const month = [
     "января",
     "февраля",
     "марта",
@@ -74,7 +74,7 @@ export function getFormatedDateForCards(day) {
     "ноября",
     "декабря",
   ][date.getMonth()];
-  let dayOfMonth = date.getDate();
-  let formatedDate = dayOfMonth + " " + month+", " + year;
+  const dayOfMonth = date.getDate();
+  const formatedDate = dayOfMonth + " " + month+", " + year;
   return formatedDate;
   }

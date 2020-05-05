@@ -31,6 +31,13 @@ export default class NewsCardList {
     this.errorImg = errorImg;
   }
 
+  // //защита от xss
+  // sanitizeHTML(str) {
+  //   var temp = document.createElement('div');
+  //   temp.textContent = str;
+  //   return temp.innerHTML;
+  // };
+
   //добавление карточки новостей в разметку станицы
   _addCard(cardTemplate) {
     this.cardsContainer.insertAdjacentHTML("beforeend", cardTemplate);
@@ -76,7 +83,7 @@ export default class NewsCardList {
 
   //вывести\скрыть кнопку "Показать еще"
   hideAndShowMoreNewsButton(newsArray) {
-    let countedCards = this.cardsContainer.childElementCount;
+    const countedCards = this.cardsContainer.childElementCount;
     if (countedCards < newsArray.articles.length) {
       this.showMoreButton.classList.remove("hidden");
     } else {
@@ -96,8 +103,9 @@ export default class NewsCardList {
   renderNews(newsArray) {
     const newsArticles = newsArray.articles;
     for (let i = this.startCounter; i < this.startCounter + COUNTER_PLUS; i++) {
-        let articalImage = this.checkArticleImage(newsArticles[i].urlToImage);
-        let news = this.newsCard.create(
+      if (newsArticles[i]) {
+        const articalImage = this.checkArticleImage(newsArticles[i].urlToImage);
+        const news = this.newsCard.create(
           newsArticles[i].url,
           articalImage,
           getFormatedDateForCards(newsArticles[i].publishedAt),
@@ -106,7 +114,8 @@ export default class NewsCardList {
           newsArticles[i].source.name
         );
         this._addCard(news);
-      }
+      }         
+    }
     this.hideAndShowMoreNewsButton(newsArray);
   }
 
@@ -114,9 +123,10 @@ export default class NewsCardList {
   showMoreNews(newsArray) {
     this.startCounter += COUNTER_PLUS;
     this.renderNews(newsArray);
+    
   }
 
-  //получение данных с new api и запись их в локальное хранилище браузера
+  //получение данных с News Api и запись их в локальное хранилище браузера
   getNews() {
     this.preloaderOn();
     this.startCounter = 0;

@@ -26,8 +26,8 @@ export default class Statistics {
 
 //поиск количества упоминаний ключевого слова в заголовках
   searchMentions() {
-    let data = JSON.parse(localStorage.getItem(this.storageData));
-    let keyWord = localStorage.getItem("keyword");
+    const data = JSON.parse(localStorage.getItem(this.storageData));
+    const keyWord = localStorage.getItem("keyword");
     let counter = 0;
     const regexp = new RegExp(`${keyWord}`, `gi`);
     data.articles.map(item => item.title).forEach(element => {
@@ -40,7 +40,7 @@ export default class Statistics {
 
 //отрисовка данных о количестве новостей за неделю и количестве упоминаний в заголовках
   setKeywordStatistic() {
-    let data = JSON.parse(localStorage.getItem(this.storageData));
+    const data = JSON.parse(localStorage.getItem(this.storageData));
     this.keyWord.textContent = localStorage.getItem("keyword");
     this.perWeek.textContent = data.totalResults;
     this.mentions.textContent = this.searchMentions();
@@ -53,7 +53,7 @@ export default class Statistics {
  
 //получение массива из форматированных дат дней недели
   getGraphWeekArray() {
-    let formatWeekArray = [];
+    const formatWeekArray = [];
     for (let i = 1; i <= 6; i++) {
       formatWeekArray.unshift(getFormatedDate(i));
     }
@@ -63,7 +63,7 @@ export default class Statistics {
 
 //добавление значений дат в столбец "Дата" графика
   setWeekGraphDates() {
-    let weekArray = this.getGraphWeekArray();
+    const weekArray = this.getGraphWeekArray();
     for (let i = 0; i < weekArray.length; i++) {
       this.graphDates.children[i].textContent = weekArray[i];
     }
@@ -71,15 +71,15 @@ export default class Statistics {
 
 //получение массива из новостей, сортированных по дням недели
   getSortedNewsArraysPerDays() {
-    let newsArticles = JSON.parse(localStorage.getItem(this.storageData)).articles;
-    let sortedNewsArray = [];
-    let currentDayAgoArray = [];
-    let oneDaysAgoArray = [];
-    let twoDaysAgoArray = [];
-    let threeDaysAgoArray = [];
-    let fourDaysAgoArray = [];
-    let fiveDaysAgoArray = [];
-    let sixDaysAgoArray = [];
+    const newsArticles = JSON.parse(localStorage.getItem(this.storageData)).articles;
+    const sortedNewsArray = [];
+    const currentDayAgoArray = [];
+    const oneDaysAgoArray = [];
+    const twoDaysAgoArray = [];
+    const threeDaysAgoArray = [];
+    const fourDaysAgoArray = [];
+    const fiveDaysAgoArray = [];
+    const sixDaysAgoArray = [];
     sortedNewsArray.push(
       currentDayAgoArray, 
       oneDaysAgoArray, 
@@ -89,7 +89,7 @@ export default class Statistics {
       fiveDaysAgoArray, 
       sixDaysAgoArray
     );
-    let currentWeekArray = this.getGraphWeekArray();
+    const currentWeekArray = this.getGraphWeekArray();
     for (let i = 0; i < newsArticles.length; i++) {
       if (currentWeekArray[0] === getdayDateformat(newsArticles[i].publishedAt) ) {currentDayAgoArray.push(newsArticles[i])};
       if (currentWeekArray[1] === getdayDateformat(newsArticles[i].publishedAt) ) {oneDaysAgoArray.push(newsArticles[i])};
@@ -104,10 +104,10 @@ export default class Statistics {
 
 //подсчет количества упоминаний ключевого слова в заголовках и описании новостей
   getMentionsPerDay() {
-    let keyWord = localStorage.getItem("keyword");
-    let mentionsArray = [];
+    const keyWord = localStorage.getItem("keyword");
+    const mentionsArray = [];
     const regexp = new RegExp(`${keyWord}`, `gi`);
-    let weekArray = this.getSortedNewsArraysPerDays();
+    const weekArray = this.getSortedNewsArraysPerDays();
     for (let i = 0; i <= 6; i++) {
       let counter = 0;
       weekArray[i].map(item => item.title).forEach(element => {
@@ -131,13 +131,13 @@ export default class Statistics {
 
 //заполнение графика данными количества упоминаний по дням
   renderGraph() {
-    let mentionsArray = this.getMentionsPerDay();
+    const mentionsArray = this.getMentionsPerDay();
     for (let i = 0; i < mentionsArray.length; i++) {
       this.graphBars.children[i].textContent = mentionsArray[i];
       if (mentionsArray[i] !== 0) {
-        let widthPC = 11.3*mentionsArray[i];
-        let widthTablet = 5.5*mentionsArray[i];
-        let widthMobile = 1.86*mentionsArray[i];
+        const widthPC = 11.3*mentionsArray[i];
+        const widthTablet = 5.5*mentionsArray[i];
+        const widthMobile = 1.86*mentionsArray[i];
         this.graphBars.children[i].style.width = `${widthPC}px`;
         if (window.matchMedia("screen and (min-width: 768px) and (max-width: 1250px)").matches) {
           this.graphBars.children[i].style.width = `${widthTablet}px`;
