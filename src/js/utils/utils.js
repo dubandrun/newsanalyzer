@@ -77,4 +77,4 @@ export function getFormatedDateForCards(day) {
   const dayOfMonth = date.getDate();
   const formatedDate = dayOfMonth + " " + month+", " + year;
   return formatedDate;
-  }
+}

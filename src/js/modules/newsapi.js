@@ -11,7 +11,7 @@ export default class NewsApi {
   
 //получение данных с News Api
   getNews() {
-    return fetch('https://newsapi.org/v2/everything?' +
+    return fetch('http://newsapi.org/v2/everything?' +
     `q=${this.input.value}&` +
     `from=${getCurrentDate()}&` +
     `to=${getWeekAgoDate()}&` +
