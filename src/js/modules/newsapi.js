@@ -11,7 +11,7 @@ export default class NewsApi {
   
 //получение данных с News Api
   getNews() {
-    return fetch('https://nomoreparties.co/news/v2/everything' +
+    return fetch('https://nomoreparties.co/news/v2/everything?' +
     `q=${this.input.value}&` +
     `from=${getCurrentDate()}&` +
     `to=${getWeekAgoDate()}&` +
