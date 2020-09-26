@@ -7,20 +7,18 @@ import {
   STORAGE_DATA,
   GRAPH_HEADING_DATE,
   GRAPH_DATES,
-  GRAPH_BARS
-} from "../js/constants/constants"
+  GRAPH_BARS,
+} from "../js/constants/constants";
 
 import Statistics from "../js/components/statistics";
 
-(function() {
-  const STATISTICS = new Statistics(
-    STORAGE_DATA,
-    STATS_KEYWORD,
-    STATS_PER_WEEK,
-    STATS_NUMBER_OF_MENTIONS,
-    GRAPH_HEADING_DATE,
-    GRAPH_DATES,
-    GRAPH_BARS
-  )
-  STATISTICS.renderStatistics();
-})();
+const STATISTICS = new Statistics(
+  STORAGE_DATA,
+  STATS_KEYWORD,
+  STATS_PER_WEEK,
+  STATS_NUMBER_OF_MENTIONS,
+  GRAPH_HEADING_DATE,
+  GRAPH_DATES,
+  GRAPH_BARS
+);
+STATISTICS.renderStatistics();
